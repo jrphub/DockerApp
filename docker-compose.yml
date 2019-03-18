@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+  kafka:
+    image: spotify/kafka:latest
+    volumes:
+       - ./kafka-publisher/jars:/apps
+       - ./kafka-publisher/scripts:/scripts
+    environment:
+      - KAFKA=localhost:9092
+      - ZOOKEEPER=localhost:2181
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    expose:
+      - "2181"
+      - "9092"
+
+  cassandra:
+    image: cassandra:3.11.4
+    ports:
+      - "9042:9042"
+    expose:
+      - "9042"
+
+  spark:
+    image: gettyimages/spark:2.1.1-hadoop-2.7
+    volumes:
+      - ./spark-consumer/jars:/apps
+      - ./spark-consumer/scripts:/scripts
+    depends_on:
+      - kafka
+      - cassandra
+    links:
+      - kafka
+      - cassandra
+    ports:
+      - "4040:4040"
+      - "8080:8080"
+      - "8081:8081"
