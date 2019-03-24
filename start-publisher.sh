@@ -1,5 +1,5 @@
 #ENV Variable
-TOPIC=tweets-ml-demo-01
+TOPIC=tweets-sentiment
 KAFKA_HOST=kafka:9092
 KEYWORD="'#trending'"
 

@@ -6,7 +6,7 @@ docker-compose up -d
 docker ps
 
 #ENV Variable
-TOPIC=tweets-ml-demo-01
+TOPIC=tweets-sentiment
 ZOOKEEPER=kafka:2181
 KAFKA_HOME=./opt/kafka_2.11-0.10.1.0
 

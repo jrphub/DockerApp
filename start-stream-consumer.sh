@@ -1,8 +1,8 @@
 #ENV Variable
-TOPIC=tweets-ml-demo-01
+TOPIC=tweets-sentiment
 MASTER=local[*]
 KAFKA_HOST=kafka:9092
-STREAM_CONSUMER_GROUPID=tweet-demo-live-group
+STREAM_CONSUMER_GROUPID=tweets-stream-group
 
 #Spark-streaming
 
