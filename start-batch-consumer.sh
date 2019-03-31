@@ -9,7 +9,4 @@ OUTPUT_DIR=/tweetsBatchOutput
 docker exec -it $(docker-compose ps -q spark) mkdir -p $OUTPUT_DIR
 docker exec -it $(docker-compose ps -q spark) chmod 777 -R $OUTPUT_DIR
 
-
-
 docker exec -it $(docker-compose ps -q spark) java -jar /apps/LambdaBatchConsumer-0.0.1-SNAPSHOT.jar $KAFKA_HOST $BATCH_CONSUMER_GROUPID $TOPIC $OUTPUT_DIR
-
